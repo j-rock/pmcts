@@ -1,9 +1,8 @@
+{-# LANGUAGE BangPatterns    #-}
 {-# LANGUAGE RecordWildCards #-}
-{-# LANGUAGE BangPatterns #-}
 
 module Data.MCTS
     ( search
-    -- , searchResults
     , GetMoves
     , MakeMove
     , IsWon
@@ -11,12 +10,12 @@ module Data.MCTS
     , SearchEnd(..)
     ) where
 
-import qualified Data.Time.Clock as Time
 import qualified Control.Concurrent.Async as Async
-import qualified Control.Monad.Random as Random
-import qualified Data.Foldable as Fold
-import qualified Data.Ord as Ord
-import Data.Ratio ((%))
+import qualified Control.Monad.Random     as Random
+import qualified Data.Foldable            as Fold
+import qualified Data.Ord                 as Ord
+import           Data.Ratio               ((%))
+import qualified Data.Time.Clock          as Time
 
 -- | From state s, construct a container t of moves of type e
 type GetMoves s t e = s -> t e
